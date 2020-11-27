@@ -48,5 +48,11 @@ Route::post('/productos', 'ProductoController@store');
 Route::put('/productos/{id}', 'ProductoController@update');
 Route::delete('/productos/{id}', 'ProductoController@delete');
 
+// Proveedores
+Route::get('/proveedores', 'ProveedoreController@index');
+Route::get('/proveedores/{id}', 'ProveedoreController@show');
+Route::post('/proveedores', 'ProveedoreController@store');
+Route::put('/proveedores/{id}', 'ProveedoreController@update');
+
 // Usuarios
 Route::get('/usuarios', 'UserController@index');
