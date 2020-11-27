@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminlte.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free//css/all.min.css') }}" rel="stylesheet">
 </head>
@@ -61,7 +62,7 @@
           <!-- Brand Logo -->
           <a href="index3.html" class="brand-link">
             <img src="{{asset('images/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <span class="brand-text font-weight-light">SIADMIN</span>
           </a>
       
           <!-- Sidebar -->
@@ -73,13 +74,52 @@
                 
                 <li class="nav-header">MENU</li>
                 @if (Auth::user()->role_id == 1)
-                  <li class="nav-item">
-                    <a href="/administrar" class="nav-link @yield('administrar-active')">
-                      <i class="nav-icon far fa-image"></i>
+                  <li class="nav-item @yield('open')">
+                    <a href="#" class="nav-link @yield('administrar-active')">
+                      <i class="nav-icon fas fa-tachometer-alt"></i>
                       <p>
                         Administrar
+                        <i class="right fas fa-angle-left"></i>
                       </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="categorias" class="nav-link @yield('categorias-active')">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Categorias</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="clientes" class="nav-link @yield('clientes-active')">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Clientes</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/empresas" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Empresas</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/productos" class="nav-link @yield('productos-active')">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Productos</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/proveedores" class="nav-link @yield('proveedores-active')">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Proveedores</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/usuarios" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Usuarios</p>
+                        </a>
+                      </li>
+                    </ul>
                   </li>
                 @endif               
                 
@@ -88,6 +128,14 @@
                     <i class="nav-icon far fa-image"></i>
                     <p>
                       Inventario
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link @yield('compras-active')">
+                    <i class="nav-icon fas fa-columns"></i>
+                    <p>
+                      Compras
                     </p>
                   </a>
                 </li>

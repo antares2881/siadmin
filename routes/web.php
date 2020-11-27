@@ -19,9 +19,25 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Categorias
+Route::get('/categorias', 'CategoriaController@index');
+Route::get('/categorias/{id}', 'CategoriaController@show');
+Route::put('/categorias/{id}', 'CategoriaController@update');
+Route::post('/categorias', 'CategoriaController@store');
+
+// Clientes
+Route::get('/clientes', 'ClienteController@index');
+Route::get('/clientes/{id}', 'ClienteController@show');
+Route::post('/clientes', 'ClienteController@store');
+Route::put('/clientes/{id}', 'ClienteController@update');
+
 // Inventarios
 Route::get('/inventario', 'InventarioController@index');
 Route::post('/inventario', 'InventarioController@store');
 
 // Productos
 Route::get('/productos', 'ProductoController@index');
+Route::get('/productos/{id}', 'ProductoController@show');
+Route::post('/productos', 'ProductoController@store');
+Route::put('/productos/{id}', 'ProductoController@update');
+Route::delete('/productos/{id}', 'ProductoController@delete');
