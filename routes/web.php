@@ -31,6 +31,12 @@ Route::get('/clientes/{id}', 'ClienteController@show');
 Route::post('/clientes', 'ClienteController@store');
 Route::put('/clientes/{id}', 'ClienteController@update');
 
+// Empresas
+Route::get('/empresas', 'EmpresaController@index');
+Route::get('/empresas/{id}', 'EmpresaController@show');
+Route::post('/empresas', 'EmpresaController@store');
+Route::put('/empresas/{id}', 'EmpresaController@update');
+
 // Inventarios
 Route::get('/inventario', 'InventarioController@index');
 Route::post('/inventario', 'InventarioController@store');
@@ -41,3 +47,6 @@ Route::get('/productos/{id}', 'ProductoController@show');
 Route::post('/productos', 'ProductoController@store');
 Route::put('/productos/{id}', 'ProductoController@update');
 Route::delete('/productos/{id}', 'ProductoController@delete');
+
+// Usuarios
+Route::get('/usuarios', 'UserController@index');

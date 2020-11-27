@@ -96,7 +96,7 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="/empresas" class="nav-link">
+                        <a href="/empresas" class="nav-link @yield('empresas-active')'">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Empresas</p>
                         </a>

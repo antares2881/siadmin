@@ -96,6 +96,14 @@
         },
         methods: {
             crearcliente(){
+
+                this.cliente.id = '';
+                this.cliente.nombres = '';
+                this.cliente.apellidos = '';
+                this.cliente.direccion = '';
+                this.cliente.telefono = '';
+                this.cliente.email = '';
+
                 this.mensajeOk = false;
                 this.btnCrear = true;
                 this.tituloModal = 'Crear cliente';
