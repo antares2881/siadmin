@@ -114,7 +114,7 @@
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="/usuarios" class="nav-link">
+                        <a href="/usuarios" class="nav-link @yield('usuarios-active')">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Usuarios</p>
                         </a>
@@ -132,7 +132,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link @yield('compras-active')">
+                  <a href="/compras" class="nav-link @yield('compras-active')">
                     <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Compras

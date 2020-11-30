@@ -12,9 +12,11 @@ class InventarioController extends Controller
 {
     public function index(Request $request){
 
+        $empresa = Empresa::where('user_id', Auth::user()->id)->get();
+
         if($request->ajax()){
 
-            $inventario = Inventario::with(['productos'])->get();
+            $inventario = Inventario::with(['productos'])->where('empresa_id', $empresa[0]->id)->get();
             return $inventario;
 
         }else{

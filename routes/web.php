@@ -31,6 +31,14 @@ Route::get('/clientes/{id}', 'ClienteController@show');
 Route::post('/clientes', 'ClienteController@store');
 Route::put('/clientes/{id}', 'ClienteController@update');
 
+// Compra productos
+Route::get('/compraproductos/{id}', 'CompraproductoController@show');
+
+// Compras
+Route::get('/compras', 'CompraController@index');
+Route::post('/compras', 'CompraController@store');
+Route::delete('/compras/{id}', 'CompraController@delete');
+
 // Empresas
 Route::get('/empresas', 'EmpresaController@index');
 Route::get('/empresas/{id}', 'EmpresaController@show');
@@ -54,5 +62,11 @@ Route::get('/proveedores/{id}', 'ProveedoreController@show');
 Route::post('/proveedores', 'ProveedoreController@store');
 Route::put('/proveedores/{id}', 'ProveedoreController@update');
 
+// Roles
+Route::get('/roles', 'RoleController@index');
+
 // Usuarios
 Route::get('/usuarios', 'UserController@index');
+Route::get('/usuarios/{id}', 'UserController@show');
+Route::post('/usuarios', 'UserController@store');
+Route::put('/usuarios/{id}', 'UserController@update');
