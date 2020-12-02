@@ -140,7 +140,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link @yield('ventas-active')">
+                  <a href="/ventas" class="nav-link @yield('ventas-active')">
                     <i class="nav-icon fas fa-columns"></i>
                     <p>
                       Ventas

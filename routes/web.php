@@ -70,3 +70,11 @@ Route::get('/usuarios', 'UserController@index');
 Route::get('/usuarios/{id}', 'UserController@show');
 Route::post('/usuarios', 'UserController@store');
 Route::put('/usuarios/{id}', 'UserController@update');
+
+// Ventas 
+Route::get('/ventas', 'VentaController@index');
+Route::get('/ventas/{id}', 'VentaController@show');
+Route::post('/ventas', 'VentaController@store');
+
+// Venta productos
+Route::get('/ventaproductos/{id}', 'ProductoventaController@show');

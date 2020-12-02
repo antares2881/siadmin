@@ -34,7 +34,7 @@
                     <th>Categoria</th>
                     <th>Producto</th>
                     <th>Stock</th>
-                    <th>Fecha de ingreso</th>
+                    <th>Fecha de actualizacion</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +42,7 @@
                     <td>{{item.productos.categoria_id}}</td>
                     <td>{{item.productos.nombre}}</td>
                     <td>{{item.stock}}</td>
-                    <td>{{item.created_at}}</td>
+                    <td>{{item.updated_at}}</td>
                 </tr>
             </tbody>
         </table>

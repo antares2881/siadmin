@@ -80,8 +80,20 @@ class CompraController extends Controller
     }
 
     public function delete($id){
-        $compraproducto = Compraproducto::where('compra_id', $id);
-        $compraproducto->delete();
+        
+        $compraproducto = Compraproducto::where('compra_id', $id)->get();
+        $inventario = Inventario::where('producto_id', $compraproducto[0]->producto_id)->get();
+
+        $stock = $inventario[0]->stock - $compraproducto[0]->cantidad;
+
+        // Actualiza stock de inventario
+        $newinventario = Inventario::find($inventario[0]->id);
+        $newinventario->stock = $stock;
+        $newinventario->save();
+
+        $newcompraproducto = Compraproducto::find($compraproducto[0]->id);
+
+        $newcompraproducto->delete();
 
         $compra = Compra::find($id);
         $compra->delete();

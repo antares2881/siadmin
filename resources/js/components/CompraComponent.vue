@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-modal ref="modal-productos" hide-footer no-close-on-backdrop title="Detalle productos" size="lg">
+        <!-- <b-modal ref="modal-productos" hide-footer no-close-on-backdrop title="Detalle productos" size="lg">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -19,7 +19,7 @@
                     </tr>
                 </tbody>
             </table>
-        </b-modal>
+        </b-modal> -->
         <b-modal ref="modal-compra" hide-footer no-close-on-backdrop :title="tituloModal" size="xl"> 
             <div class="row">
                 <div class="col-md-12">
@@ -83,7 +83,31 @@
             <tbody>
                 <tr v-for="(item, index) in compras" :key="index">
                     <td>
-                        <button class="btn btn-secondary" @click="detalleProductos(item.id)">Ver productos</button>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" :data-target="'#collapse' + item.id" aria-expanded="false" @click="detalleProductos(item.id)">
+                            Detalle
+                        </button>
+                        <div class="collapse mt-2" :id="'collapse' + item.id">
+                            <div class="card card-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Producto</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(item, index) in detalleCompra" :key="index">
+                                            <td>{{item.productos.nombre}}</td>
+                                            <td>{{item.productos.precio}}</td>
+                                            <td>{{item.cantidad}}</td>
+                                            <td>{{item.cantidad * item.productos.precio}}</td>                        
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </td>
                     <td>{{item.factura}}</td>
                     <td>{{item.total}}</td>
@@ -147,7 +171,7 @@
                 axios.get(`/compraproductos/${id}`)
                     .then(res => {
                         this.detalleCompra = res.data;
-                        this.$refs['modal-productos'].show();
+                        // this.$refs['modal-productos'].show();
                     })
                     .catch(err => {
                         console.log(err)
@@ -159,6 +183,7 @@
                     axios.delete(`/compras/${id}`)
                         .then(res => {
                             location.reload();
+                            // console.log(res.data);
                         })
                         .catch(err => {
                             console.log(err)
