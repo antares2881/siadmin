@@ -63,7 +63,7 @@
                     <th>No. factura</th>
                     <th>Total venta</th>
                     <th>Fecha</th>
-                    <th>Acciones</th>
+                    <th>Imprimir factura</th>
                 </tr>
             </thead>
             <tbody>
@@ -100,7 +100,7 @@
                     <td>{{item.total}}</td>
                     <td>{{item.created_at}}</td>
                     <td>
-                        <button class="btn btn-danger" @click="imprimirFactura(item.id)">Imprimir</button>
+                        <button class="btn btn-danger" @click="imprimirFactura(item.id)"><i class="fas fa-file-pdf"></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -265,7 +265,7 @@
                         + 30);
                         
                         
-                        this.doc.save("a4.pdf");
+                        this.doc.save("factura_"+datos.factura+"_"+datos.cliente_id+".pdf");
                     })
                     .catch(err => {
                         console.log(err)
